@@ -268,6 +268,14 @@
 		walls.receiveShadow = true;
 		scene.add(walls);
 
+		/*
+		IE does not support cross-origin video, and THREE.js doesn't have a workaround
+		for lack of video texture support anyway.
+		*/
+		if (!video.crossOrigin) {
+			posters[0] = 'fallen-city-poster.jpg';
+		}
+
 		//make posters
 		var posterGeo = new THREE.PlaneGeometry(1, 1);
 		var inradius = ROOM_RADIUS * Math.cos(Math.PI / SIDES) - 0.01;
