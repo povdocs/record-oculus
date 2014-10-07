@@ -264,9 +264,21 @@
 				shading: THREE.FlatShading
 			})
 		);
-		walls.position.y = 2;
+		walls.position.y = WALL_HEIGHT / 2;
 		walls.receiveShadow = true;
 		scene.add(walls);
+
+		var ceiling = new THREE.Mesh(
+			new THREE.CylinderGeometry( 0, ROOM_RADIUS, WALL_HEIGHT / 2, SIDES, 1, true ),
+			new THREE.MeshLambertMaterial({
+				color: 0x999999,
+				side: THREE.BackSide,
+				shading: THREE.FlatShading
+			})
+		);
+		ceiling.position.y = WALL_HEIGHT * (1 + 1 / 4);
+		ceiling.receiveShadow = true;
+		scene.add(ceiling);
 
 		/*
 		IE does not support cross-origin video, and THREE.js doesn't have a workaround
@@ -323,7 +335,7 @@
 			poster = new THREE.Mesh( posterGeo, posterMat );
 			poster.rotateY(angle + Math.PI);
 			poster.scale.y = 0.8 * WALL_HEIGHT;
-			poster.position.y = (poster.scale.y) / 2;
+			poster.position.y = WALL_HEIGHT / 2;
 			poster.position.x = Math.sin(angle) * inradius;
 			poster.position.z = Math.cos(angle) * inradius;
 
