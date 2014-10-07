@@ -268,6 +268,18 @@
 		walls.receiveShadow = true;
 		scene.add(walls);
 
+		var ceiling = new THREE.Mesh(
+			new THREE.CylinderGeometry( 0, ROOM_RADIUS, WALL_HEIGHT / 2, SIDES, 1, true ),
+			new THREE.MeshLambertMaterial({
+				color: 0x999999,
+				side: THREE.BackSide,
+				shading: THREE.FlatShading
+			})
+		);
+		ceiling.position.y = WALL_HEIGHT * (1 + 1 / 4);
+		ceiling.receiveShadow = true;
+		scene.add(ceiling);
+
 		/*
 		IE does not support cross-origin video, and THREE.js doesn't have a workaround
 		for lack of video texture support anyway.
