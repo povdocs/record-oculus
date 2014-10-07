@@ -28,6 +28,8 @@
 		//recordButton = document.getElementById('record'),
 		timeline = document.getElementById('timeline'),
 		progress = document.getElementById('progress'),
+		infobutton = document.getElementById('infobutton'),
+		info = document.getElementById('info'),
 
 		posters = [
 			video,
@@ -405,6 +407,14 @@
 				play();
 			}
 		}, false);
+
+		infobutton.addEventListener('click', function () {
+			if (info.className) {
+				info.className = '';
+			} else {
+				info.className = 'open';
+			}
+		});
 
 		setTimeout(function () {
 			if (vrEffect.hmd()) {
