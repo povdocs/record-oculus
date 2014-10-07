@@ -264,7 +264,7 @@
 				shading: THREE.FlatShading
 			})
 		);
-		walls.position.y = 2;
+		walls.position.y = WALL_HEIGHT / 2;
 		walls.receiveShadow = true;
 		scene.add(walls);
 
@@ -323,7 +323,7 @@
 			poster = new THREE.Mesh( posterGeo, posterMat );
 			poster.rotateY(angle + Math.PI);
 			poster.scale.y = 0.8 * WALL_HEIGHT;
-			poster.position.y = (poster.scale.y) / 2;
+			poster.position.y = WALL_HEIGHT / 2;
 			poster.position.x = Math.sin(angle) * inradius;
 			poster.position.z = Math.cos(angle) * inradius;
 
